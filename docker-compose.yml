@@ -1,0 +1,20 @@
+services:
+  producer:
+    build: producer
+    ports:
+      - "8181:8181"
+    volumes:
+      - type: volume
+        source: my-volume
+        target: /opt
+  consumer:
+    build: consumer
+    ports:
+      - "8182:8182"
+    volumes:
+      - type: volume
+        source: my-volume
+        target: /opt
+volumes:
+  my-volume:
+    external: false
